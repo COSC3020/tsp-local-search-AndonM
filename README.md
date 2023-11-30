@@ -48,6 +48,4 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 
 ## Runtime Analysis
 
-What is the worst-case asymptotic time complexity of your implementation? What
-is the worst-case asymptotic memory complexity? Add your answer, including your
-reasoning, to this markdown file.
+Let n represent the number of cities/routes, m be the maximum number of iterations (maxIterations), and d represent the length of the route (or the size of the distance matrix). The worst-case time complexity of the main tspLS loop is O(m) and the worst-case time complexity for the twoOptSwap function is similarly O(d). Finally we must consider the one helper function, calculateRouteLength that has a worst-case time complexity of O(n). Because the complexity of the algorithm is primarily determined by the main loop containing both the twoOptSwap and calculateRouteLength functions, we get a final worst-case time complexity of $O(m * d * n).$ Everything else is either a constant factor or has a time complexity of n, running only once. Memory usage in this algorithm is reserved for the incumbent route and temporary variables, therefore our space complexity is going to based on the sizes of the data structures used to handle the data. In the worst-case that would be O(d).
