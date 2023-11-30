@@ -2,11 +2,11 @@ function tspLS(distanceMatrix) {
     const n = distanceMatrix.length;
     let incumbent = getRandomRoute(n);
     let incumbentLength = calculateRouteLength(incumbent, distanceMatrix);
-    const maxIterations = 1000;
-    const maxFailedAttempts = 5;
+    const maxIterations = 1000; // Don't want to run forever. This is an expensive algorithm.
+    const maxFailedAttempts = 5; // Provides a good balance between speed and quality of solution
     let failedAttempts = 0;
     for (let iteration = 0; iteration < maxIterations && failedAttempts < maxFailedAttempts; iteration++) {
-        let i = getRandomIndex(n);
+        let i = getRandomIndex(n); // i and k are simply chosen to be random. I'm sure there's something better that can be done but it didn't come to mind
         let k = getRandomIndex(n);
         while (i === k) {
             k = getRandomIndex(n);
